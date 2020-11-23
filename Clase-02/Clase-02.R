@@ -67,6 +67,9 @@ vector_2[2] # nos da el segundo elemento
 vector_2[4:6] # nos da el cuarto, quinto y sexto elemento.
 
 
+####################### BREAK DE 10 MINUTOS ################################ ---------------------
+
+
 ####################### FUNCIONES ################################ ---------------------
 
 2 + sqrt(25) - log(1) # equivalente a 2 + 5 + 0
@@ -75,7 +78,7 @@ vector_2[4:6] # nos da el cuarto, quinto y sexto elemento.
 
 ## sqrt() asume un valor numérico como entrada y entrega su raíz cuadrada como salida. log() asume esa misma entrada, pero entrega su logaritmo natural. c() una función que usamos previamente, asume diferentes valores únicos como entradas y entrega un vector que los contiene.
 
-## Es debido a los vectores que las funciones en R comienzan a brillar y se alejan de las cualidades básicas de una calculadora (eso, a grandes rasgos, es lo que hemos visto hasta ahora en R, nada impresionante). Examinemos otras funciones que extraen información útil de un vector. ¿Qué hace cada una de ellas?
+## Es debido a los vectores que las funciones en R comienzan a brillar y se alejan de las cualidades básicas de una calculadora. Examinemos otras funciones que extraen información útil de un vector. ¿Qué hace cada una de ellas?
 
 mean(vector_1) # media
 
@@ -96,6 +99,38 @@ exp(vector_1) # exponencial
 length(vector_1) # longitud (cantidad de valores)
 
 sort(vector_1) # ordena de mayor a menor 
+
+## ¿Qué pasaría si quisiéramos ordenarlo desde el más grande al más pequeño? Esto nos permite introducir los argumentos, partes de las funciones que modifican su comportamiento. Ahora, añadiremos el argumento decreasing = TRUE en el comando anterior, lo que logra nuestro objetivo:
+  
+sort(vector_1, decreasing = TRUE)
+
+## Un concepto que tiene que ver tanto con objetos como con funciones es el de valores perdidos, un tema que exploraremos con más detalle en el capítulo 11. Las bases de datos con las que trabajamos pueden tener valores perdidos por varias razones: errores de codificación, gobiernos que ocultan información, datos aún no recogidos, entre otras. En cualquier caso, debemos tener esto en cuenta al hacer nuestro análisis R registra los valores perdidos como “NA” (no disponible). Nótese que no se trata de un valor de carácter con las letras “N” y “A”, sino de un tipo de valor distinto. Agreguemos un valor faltante a nuestro vector anterior:
+  
+vector_1_con_na <- c(vector_1, NA)
+vector_1_con_na
+
+## ¿Cómo deberían reaccionar las funciones a este nuevo vector? Por defecto, la mayoría de las operaciones R realizadas con valores perdidos fallan (devolviendo NA), alertando que no pueden computar lo que necesitas. Por ejemplo:
+  
+mean(vector_1_con_na)
+
+## Tal vez en algunos casos quiera hacer saber a R que debe ignorar los valores faltantes en el vector y simplemente continuar con la operación. En la mayoría de las funciones, puedes especificar esto con el argumento na.rm = TRUE:
+  
+mean(vector_1_con_na, na.rm = TRUE)
+
+## [1] 15
+## Otra posibilidad es hacer esta omisión de la NA ex ante, modificando el vector. Una función útil para este caso es na.omit(), que devuelve el vector sin ningún valor perdido:
+  
+  na.omit(vector_1_con_na)
+## [1] 15 10 20
+## attr(,"na.action")
+## [1] 4
+## attr(,"class")
+## [1] "omit"
+Por último, una función común para tratar con NAs es is.na(), que permite comprobar qué valores de un vector faltan, algo que será útil más adelante (por ejemplo, para filtrar bases de datos):
+  
+  
+  is.na(vector_1_con_na)
+## [1] FALSE FALSE FALSE  TRUE
 
 
 
