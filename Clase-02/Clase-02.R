@@ -1,8 +1,9 @@
 
 ####################### CLASE 02 ################################ ---------------------
 
-## Introducción a R. ¿Qué son los entornos y los lenguajes de programación?
-## RStudio está dividido en cuatro paneles (consola, guión, objetos y miscelánea), que abordaremos a continuación. La idea de esta sección es familiarizar al lector principiante con la base de R. Además, le recomendamos que edite algunas configuraciones de RSutdio antes de comenzar, lo que en nuestra experiencia mejorará su experiencia de aprendizaje:
+## Introducción a R. 
+## Crear un proyecto en R. 
+## Shortcuts (color, reset, wrap)
 ## 1. General > Desmarcar “Restaurar .RData en el espacio de trabajo al inicio”
 ## 2. General > Guardar el espacio de trabajo en .RData al cerrar > Nunca
 
@@ -117,20 +118,13 @@ mean(vector_1_con_na)
   
 mean(vector_1_con_na, na.rm = TRUE)
 
-## [1] 15
 ## Otra posibilidad es hacer esta omisión de la NA ex ante, modificando el vector. Una función útil para este caso es na.omit(), que devuelve el vector sin ningún valor perdido:
-  
-  na.omit(vector_1_con_na)
-## [1] 15 10 20
-## attr(,"na.action")
-## [1] 4
-## attr(,"class")
-## [1] "omit"
-Por último, una función común para tratar con NAs es is.na(), que permite comprobar qué valores de un vector faltan, algo que será útil más adelante (por ejemplo, para filtrar bases de datos):
-  
-  
-  is.na(vector_1_con_na)
-## [1] FALSE FALSE FALSE  TRUE
+
+na.omit(vector_1_con_na)
+
+## Por último, una función común para tratar con NAs es is.na(), que permite comprobar qué valores de un vector faltan, algo que será útil más adelante (por ejemplo, para filtrar bases de datos):
+
+is.na(vector_1_con_na)
 
 
 
