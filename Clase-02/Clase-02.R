@@ -1,8 +1,20 @@
 
 ####################### CLASE 02 ################################ ---------------------
 
+#
+#        )  (
+#        ( ) )
+#          ( (
+#      _______)_
+#   .-'---------|
+#  ( C| Yo <3 R |                       (based on: mrf)
+#   '-.         |
+#     '_________'
+#      '-------'
+
+
 ## Introducción a R. 
-## Crear un proyecto en R. 
+## Crear un proyecto en R: file/RScript
 ## Shortcuts (color, reset, wrap)
 ## 1. General > Desmarcar “Restaurar .RData en el espacio de trabajo al inicio”
 ## 2. General > Guardar el espacio de trabajo en .RData al cerrar > Nunca
@@ -68,10 +80,8 @@ vector_2[2] # nos da el segundo elemento
 vector_2[4:6] # nos da el cuarto, quinto y sexto elemento.
 
 
-####################### BREAK DE 10 MINUTOS ################################ ---------------------
-
-
 ####################### FUNCIONES ################################ ---------------------
+
 
 2 + sqrt(25) - log(1) # equivalente a 2 + 5 + 0
 
@@ -125,6 +135,27 @@ na.omit(vector_1_con_na)
 ## Por último, una función común para tratar con NAs es is.na(), que permite comprobar qué valores de un vector faltan, algo que será útil más adelante (por ejemplo, para filtrar bases de datos):
 
 is.na(vector_1_con_na)
+
+####################### EJERCICIO ################################ ---------------------
+
+## Crea un objeto con los valores del grafico. Calcula los estadisticos descriptivos: media, mediana, valor maximo, vamor minimo
+
+####################### BREAK DE 10 MINUTOS ################################ ---------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
