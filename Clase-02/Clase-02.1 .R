@@ -58,21 +58,27 @@ help(sqrt)
 
 ## Stack Overflow 
 
+####################### TWITTER DEVELOPER ############### -------------------
 
 ####################### MAS OPCIONES PARA SEGUIR EXPLORANDO ############### -------------------
 
-## ¿cómo podemos manejar una base de datos muy grande? Una primera alternativa es evaluar la necesidad de utilizar toda la base de datos para el análisis, o, si se puede acortar antes de utilizarla. Para iniciar un análisis exploratorio que pueda aclarar este punto, recomendamos usar el argumento n_max= en read_csv() y sus funciones hermanas (por ejemplo, read_tsv()). De esta manera podemos examinar las primeras cien observaciones de la base de datos, haciendo que el proceso de cálculo sea menos exigente:
+## ¿cómo podemos manejar una base de datos muy grande? Para acortarla desde un inicio se puede utilizar el argumento n_max= en read_csv() y sus funciones hermanas (por ejemplo, read_tsv()). De esta manera podemos examinar las primeras cien observaciones de la base de datos, haciendo que el proceso de cálculo sea menos exigente:
+
+df <- read_csv("delitos_2019.csv", n_max = 100)
 
 
-df_desiguales_large_100 <- read_csv("data/desiguales.csv", n_max = 100)
+## Ahora, ¿qué pasa si, después de comprobar los datos, descubres que sólo necesitas un par de variables para el análisis?
 
+df <- read_csv("delitos_2019.csv",
+               col_types = cols_only_chr(c("tipo_delito","barrio")))
 
+## Otras dos alternativas de optimizacion
 
+library(data.table)
+df <- fread("delitos_2019.csv")
 
-
-
-
-
+library(ff)
+df <- read.csv.ffdf(file = "delitos_2019.csv")
 
 
 
