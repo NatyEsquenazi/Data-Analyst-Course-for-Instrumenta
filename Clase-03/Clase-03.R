@@ -92,7 +92,10 @@ arrange(desc(tipo_delito))
 
 ######################## Transformar Variables ################################## ---------------------
 
-
+## La mayoría de las veces queremos crear nuevas variables a partir de las que ya tenemos. Supongamos que quisiéramos separar la columna fecha en diferentes partes  
+  
+df_7 %>%
+  separate(fecha, into = c("dia", "mes", "anio"), sep = "-")
 
 
 
