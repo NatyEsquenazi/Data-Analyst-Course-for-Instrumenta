@@ -10,8 +10,28 @@ library(readr)
 library(funModeling)
 
 df <- read_csv("Clase-02/delitos_2019.csv")
+
+## Resumen 
 summary(df)
+
+## Dimensiones
 dim(df)
+
+############### Niveles de Medicion ############################## ---------------------
+
+## Una variable es una característica de las unidades de análisis que puede asumir diferentes valores en cada una de ellas.
+
+## 1. Nominal: Una variable está medida a nivel nominal si los números que representan cada categoría son asignados de manera arbitraria y solo cumplen con la función de designar y distinguir categorías diferentes. Ej: Sexo
+
+## 2. Ordinal: Una variable está medida a nivel ordinal si los números que representan cada categoría son asignados de manera que respeten el orden según aumenta o disminuye la característica que la variable mide.Ej: Nivel educativo
+
+## 3. Intervalar: Una variable está medida a nivel intervalar cuando las distancias entre las categorías son proporcionales. Ej: depresion minima puntaje 0-13
+
+## 4. Proporcional: Una variable está medida a nivel proporcional cuando sus valores respetan relaciones de proporcionalidad y, en consecuencia, el cero tiene un valor absoluto.
+
+##                - Discreta: los valores solo puedan ser números enteros. Ej: cantidad de materias aprobadas
+##                - Continua: admite números decimales. Ej: Estatura
+
 
 ############### OPERACIONES BASICAS ############################## ---------------------
 
