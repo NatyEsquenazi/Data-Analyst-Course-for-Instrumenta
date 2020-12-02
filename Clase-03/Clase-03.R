@@ -6,6 +6,7 @@
 ## Todas estas operaciones son un paso inicial para cualquier análisis o visualización: se estima que el 80% del tiempo de análisis de datos se invierte en modificar y limpiar nuestros datos para su uso óptimo (Dasu & Johnson, 2003 en Wickham 2014).
 
 library(tidyverse)
+library(dplyr)
 library(readr)
 library(funModeling)
 
@@ -45,6 +46,10 @@ df_1 <- df %>%
 df_2 <- df %>% 
   select(franja_horaria:comuna) 
 
+## Dejar afuera del DF a dos columnas 
+
+df_2 <- df_2 %>% 
+  select(-c(cantidad_registrada, subtipo_delito))
 ## La funcion everything es util para ubicar a la columna al principio del df
 
 df_3 <- df %>% 
@@ -53,7 +58,7 @@ df_3 <- df %>%
 ## Otra función útil para select() es ends_with() y starts_with(), que nos permite seleccionar las columnas según los patrones en sus nombres. Por ejemplo, a continuación se seleccionarán todas las columnas que finalicen con la plabra “delito”
 
 df_4 <- df %>% 
-  select(ends_with("delito")) 
+  select(ends_with("delito"))
 
 
 ######################## Renombrar columnas ################################## ---------------------
@@ -61,8 +66,8 @@ df_4 <- df %>%
 ## Podemos cambiar los nombres de las columnas de una base con el comando rename(). A la izquierda deberan ubicar el nombre que quieren poenerle a la columna. 
 
 df_5 <- df %>% 
-  rename(pib_ppp_c2011 = pib, 
-         desempleo_porcentaje = desempleo) 
+  rename(latitud = lat, 
+         longitud = long) 
 
 
 ######################## Filtrar ################################## ---------------------
@@ -112,11 +117,23 @@ arrange(desc(tipo_delito))
 
 ######################## Transformar Variables ################################## ---------------------
 
-## La mayoría de las veces queremos crear nuevas variables a partir de las que ya tenemos. Supongamos que quisiéramos separar la columna fecha en diferentes partes  
-  
-df_7 %>%
-  separate(fecha, into = c("dia", "mes", "anio"), sep = "-")
+## La mayoría de las veces queremos crear nuevas variables a partir de las que ya tenemos. Case_when junto con Mutate permiten definir una variable, la cual toma un valor particular para cada condición establecida. En caso de no cumplir ninguna de las condiciones establecidas la variable tomara valor NA La sintaxis de la función es case_when( condicion lógica1 ~ valor asignado1).
 
+
+
+df_9 <- df %>% 
+  mutate(Horarios = case_when(franja_horaria >= 0 & franja_horaria <= 5 ~ 'Madrugada', 
+                              franja_horaria >= 19 & franja_horaria <= 23 ~ 'Tarde noche',
+                              franja_horaria >= 6 & franja_horaria <= 11 ~ 'Mañana',
+                              franja_horaria >= 12 & franja_horaria <= 14 ~ 'Mediodia',
+                              franja_horaria >= 15 & franja_horaria <= 18 ~ 'Tarde'))
+
+###################### Resumenes agrupados ####################################### -------------------
+
+## Summarise: Crea una nueva tabla que resuma la información original. Para ello, Definimos las variables de resumen y las formas de agregación.
+
+df_9 <- df_9 %>% 
+  summarise(Indprom = mean(id))
 
 
 
