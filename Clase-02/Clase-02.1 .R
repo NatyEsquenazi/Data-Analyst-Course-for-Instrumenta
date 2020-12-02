@@ -35,8 +35,8 @@ df <- read_stata("Clase-02/delitos_2019.dta")
 install.packages("tidyverse")
 library(tidyverse)
 
-install.packages("funmodeling")
-library(funmodeling)
+install.packages("funModeling")
+library(funModeling)
 
 glimpse(df)
 str(df)
@@ -46,13 +46,12 @@ names(df) # Nombre columnas
 View(df)
 df_status(df)
 
-
 ####################### AYUDA ################################ ---------------------
 
 ## R Studio 
 
 help(sqrt) 
-?sqrt
+?names
 
 ## R pubs 
 

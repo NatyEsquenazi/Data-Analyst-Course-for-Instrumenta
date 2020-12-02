@@ -53,17 +53,17 @@ objeto_1 + 10
 
 ## También es posible reasignar los objetos: si nos aburrimos de objeto_1 como un 4, podemos asignarle el valor que queramos. Los valores de texto (caracteres) también son válidos, tienen que ser escritos entre comillas:
   
-objeto_1 <- "democracia"
+objeto_1 <- "democracia" 
 
 objeto_1
 
 ## Borrar un objeto también es una tarea sencilla. Aunque puede sonar como si perdiéramos nuestro trabajo duro, tener una ficha de “Ambiente” limpia y fácil de leer a menudo vale la pena. Para ello, tenemos que usar la función 
 
-rm(nombre_del_objeto)
+rm(objeto_1)
 
 ####################### VECTORES ################################ ---------------------
 
-## Crear un vector es simple, sólo tenemos que insertar sus componentes entre una c(), separados por comas:
+## Crear un vector es simple, sólo tenemos que insertar sus componentes entre una c() combine, separados por comas:
 
 vector_1 <- c(15, 10, 20)
 vector_1
@@ -82,7 +82,6 @@ vector_2[4:6] # nos da el cuarto, quinto y sexto elemento.
 
 ####################### FUNCIONES ################################ ---------------------
 
-
 2 + sqrt(25) - log(1) # equivalente a 2 + 5 + 0
 
 ## R interpreta que sqrt(25) es la raíz cuadrada de 25, mientras que log(1) es el logaritmo natural de 1. Tanto sqrt() como log() son funciones de R. En términos sencillos, una función es un procedimiento que puede ser delineado como sigue:
@@ -91,6 +90,7 @@ vector_2[4:6] # nos da el cuarto, quinto y sexto elemento.
 
 ## Es debido a los vectores que las funciones en R comienzan a brillar y se alejan de las cualidades básicas de una calculadora. Examinemos otras funciones que extraen información útil de un vector. ¿Qué hace cada una de ellas?
 
+vector_1
 mean(vector_1) # media
 
 median(vector_1) # median
