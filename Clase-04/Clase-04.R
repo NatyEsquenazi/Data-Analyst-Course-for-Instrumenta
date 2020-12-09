@@ -118,7 +118,8 @@ iris_horizontal <- iris_vertical %>%
          key   = Variables, #la llave es la variable que va a dar los nombres de columna
          value = Valores) #los valores con que se llenan las celdas
 
-
+## Links utiles: http://rstudio-pubs-static.s3.amazonaws.com/227171_618ebdce0b9d44f3af65700e833593db.html
+## https://dplyr.tidyverse.org/reference/join.html
 
 
 
