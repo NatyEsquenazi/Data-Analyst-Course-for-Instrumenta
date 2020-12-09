@@ -7,6 +7,8 @@ library(tidyverse)
 library(dplyr)
 library(readr)
 library(funModeling)
+library(tidyr)
+library(datasets)
 
 df <- read_csv("Clase-02/delitos_2019.csv")
 comunas <- read_csv("Clase-04/comunas.csv")
@@ -53,6 +55,8 @@ summarise(comunas,
 
 ###################### Dplyr Joins ####################################### -------------------
 
+## Provienen del paquete Dplyr
+
 ## left_join: nos devuelve todos los registros de una tabla (x) y los coincidentes con la segunda tabla (y). 
 
 ## right_join: nos devuelve todos los registros de una tabla (y) y los coincidentes con la segunda tabla (x).
@@ -89,14 +93,30 @@ delito_horario <- nuevo_df %>%
   summarise(tipo_delito = freq(tipo_delito)) %>%
   ungroup()
 
-###################### Gather y Spread ####################################### -------------------
+###################### Tidyr: Gather y Spread ####################################### -------------------
+
+## El paquete tidyr esta pensado para facilitar el emprolijamiento de los datos.
 
 ## Gather es una función que nos permite pasar los datos de forma horizontal a una forma vertical.
 
 ## spread es una función que nos permite pasar los datos de forma vertical a una forma horizontal.
 
+data(iris)
 
-asjxbal
+iris <- iris %>% 
+  mutate(id = 1:nrow(.)) %>%  #le agrego un ID
+  select(id, everything()) # lo acomodo para que el id este primero. 
+
+iris_vertical <- iris %>%
+  gather(., # el . llama a lo que esta atras del %>% 
+         key   = Variables,
+         value = Valores,
+         2:5) #le indico que columnas juntar
+
+iris_horizontal <- iris_vertical %>%
+  spread(. ,
+         key   = Variables, #la llave es la variable que va a dar los nombres de columna
+         value = Valores) #los valores con que se llenan las celdas
 
 
 
