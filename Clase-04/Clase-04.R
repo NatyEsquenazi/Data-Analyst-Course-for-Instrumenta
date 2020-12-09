@@ -96,6 +96,7 @@ delito_horario <- nuevo_df %>%
 ## spread es una función que nos permite pasar los datos de forma vertical a una forma horizontal.
 
 
+asjxbal
 
 
 
