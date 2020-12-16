@@ -101,8 +101,9 @@ plot1 <- ggplot(data = tab1, aes(x = tipo_delito, y = perc))+
 
 
 ######################## GRAFICO DE LINEAS ###################### --------------
+############### ¿Cuál fue la evolución de los delitos en puerto madero? ################ --------------
 
-## 1 Los graficos de lineas suelen ser utiles para representar periodos de tiempo. Comenzamos filtrando nuestro dataset por los delitos sucedidos en Puerto Madero y lo agrupamos por mes. De este modo, estamos viendo la cantidad de delitos mensuales en Puerto Madero. 
+## 1. Los graficos de lineas suelen ser utiles para representar periodos de tiempo. Comenzamos filtrando nuestro dataset por los delitos sucedidos en Puerto Madero y lo agrupamos por mes. De este modo, estamos viendo la cantidad de delitos mensuales en Puerto Madero. 
 
 tab2 <- df %>% 
   filter(barrio == 'Puerto Madero') %>% 
@@ -162,18 +163,64 @@ plot3 <- df %>%
        caption = " Fuente: Portal de Datos Abiertos Gobierno de Buenos Aires")
 
 
+
+
+
 ######################## SCATTER PLOT ###################### --------------
+##### ¿Cuál es la relación entre el ingreso de un país y la expectativa de vida al nacer? ###### ---------
 
+## Un scatter plot representa la relacion entre dos variables numericas. Para cada punto, existe una lectura del eje Y y X. 
 
+## 1. Probamos con nuestros datos: Cual es la relacion entre la poblacion y la franja horaria de los delitos?
 
+ggplot(data = df,
+       mapping = aes(x=total, y = franja_horaria), group = 1) +
+  geom_point()
 
+## 2. Utilizaremos otro set de datos: ¿Cuál es la relación entre el ingreso de un país y la expectativa de vida al nacer?
 
+gapminder_df <- read.table(file = "https://raw.githubusercontent.com/martintinch0/CienciaDeDatosParaCuriosos/master/data/gapminder.csv",
+                           sep=';',
+                           header = TRUE,
+                           stringsAsFactors = FALSE)
 
+gapminderLastCut <- gapminder_df %>% 
+  filter(year==2007)
 
+## Scatter plot clasico: 
 
+ggplot(data = gapminderLastCut,
+       mapping = aes(x=gdpPercap, y = lifeExp)) +
+  geom_point() +
+  labs(x = "PIB per cápita",
+       y = "Expectativa de vida al nacer (en años)",
+       title="A más ingresos mayor tiempo de vida?",
+       subtitle="Expectativa de vida al nacer según nivel de ingreso",
+       caption="Fuente: Gapminder")
 
+## Scatter plot customizado: 
+## Agregaremos argumentos dentro de geom_point(): size(), color(), shape()
 
+ggplot(data = gapminderLastCut,
+       mapping = aes(x=gdpPercap, y = lifeExp)) +
+  geom_point(size = 1, color = "maroon", shape = 3) +
+  theme_grey()+
+  labs(x = "PIB per cápita",
+       y = "Expectativa de vida al nacer (en años)",
+       title="A más ingresos mayor tiempo de vida?",
+       subtitle="Expectativa de vida al nacer según nivel de ingreso",
+       caption="Fuente: Gapminder")
 
+## Agregamos una tercera variable de tipo categorica!!! Dentro de la función aes(), además de determinar cuáles son los valores del eje vertical (y) y del eje horizontal (x), podemos indicar mediante el argumento color() la incorporacion de una tercera variable. 
+
+ggplot(data = gapminderLastCut,
+       mapping = aes(x=gdpPercap, y = lifeExp,color=continent)) +
+  geom_point(size=1) +
+  labs(x = "PIB per cápita",
+       y = "Expectativa de vida al nacer (en años)",
+       title="A más ingresos mayor tiempo de vida?",
+       subtitle="Expectativa de vida al nacer según nivel de ingreso",
+       caption="Fuente: Gapminder")
 
 
 
