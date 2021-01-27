@@ -1,0 +1,25 @@
+---
+title: "Clase-7.1"
+author: "Natalia Esquenazi"
+date: "27/1/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+R Markdown provee un marco de escritura para ciencia de datos, que combina tu código, sus resultados y tus comentarios en prosa. Los documentos de R Markdown son completamente reproducibles y soportan docenas de formatos de salida tales como PDFs, archivos de Word, presentaciones y más (Hadley Wickam). 
+
+## Como abrir un archivo 
+
+File > New File > R Markdown > Title > Author > Tipo de documento (html, pdf) > Save
+
+## Partes de Markdown
+
+```{r}
+
+```
+
