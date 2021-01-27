@@ -1,13 +1,20 @@
 ---
-title: "Clase-7.1"
-author: "Natalia Esquenazi"
-date: "27/1/2021"
-output: html_document
+title: "Clase 7: Introduccion a R markdown"
+sutitle: "Academia Instrumenta"
+author: "Natalia Esquenazi y Franco Cellone"
+date: "27/01/2021"
+output: 
+  html_notebook:
+    toc: true
+    toc_float: true
+    depth: 4
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
+![](gif2.gif)
 
 ## R Markdown
 
@@ -19,7 +26,24 @@ File > New File > R Markdown > Title > Author > Tipo de documento (html, pdf) > 
 
 ## Partes de Markdown
 
+1. Encabezado YAML(yet another markup language)
+2. Bloques de codigo o chunks: los abrimos seleccionando insert o Crt+Alt+I
+   - Nombre
+   -
+
 ```{r}
 
 ```
+
+
+
+
+
+
+
+
+
+
+
+
 
