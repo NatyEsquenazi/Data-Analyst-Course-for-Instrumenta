@@ -10,3 +10,7 @@ Fuentes y recursos utilizados:
 2. Un Recorrido por Metodos Cuantitativos en Ciencias Sociales abordo de R. Eduardo Bologna 
 
 3. R para Ciencia de Datos. Hadley Wickham
+
+4. Ciencia de datos para cuirosos. Martin Montane
+
+5. Ciencia de datos para gente sociable. Antonio Vazquez Brust
